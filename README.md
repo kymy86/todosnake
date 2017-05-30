@@ -1,4 +1,4 @@
-ToDoSnake
+ToDoSnake [![Build Status](https://travis-ci.org/kymy86/todosnake.svg?branch=master)](https://travis-ci.org/kymy86/todosnake)
 ====
 
 Simple ToDo list application with Python Flask back-end and XXXX front-end.
