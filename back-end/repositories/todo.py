@@ -9,6 +9,11 @@ class TodoRepo:
             todo_name=todo_name
         ).one_or_none()
 
+    @staticmethod
+    def get_all():
+        return Todo.query.all()
+
+    @staticmethod
     def update(self, todo_name, is_complete):
         todo = self.get(todo_name)
         if todo is None:

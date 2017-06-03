@@ -9,10 +9,20 @@ from repositories import TodoRepo
 class TodoResource(Resource):
 
     @staticmethod
-    def get(todo_name):
+    def get(todo_name=None):
 
-        todo = TodoRepo.get(todo_name=todo_name)
-        return jsonify({'todo':{} if todo is None else todo.json})
+        if todo_name is None:
+            todos = TodoRepo.get_all()
+            response = jsonify({'todos':[item.json for item in todos]})
+            response.status_code = 200
+            response.headers['Access-Control-Allow-Origin'] = '*'
+            return response
+        else:
+            todo = TodoRepo.get(todo_name=todo_name)
+            response = jsonify({'todo':{} if todo is None else todo.json})
+            response.status_code = 200
+            response.headers['Access-Control-Allow-Origin'] = '*'
+            return response
 
     @staticmethod
     def post():
@@ -28,6 +38,7 @@ class TodoResource(Resource):
         else:
             response = jsonify({'todo':todo.json})
             response.status_code = 201
+            response.headers['Access-Control-Allow-Origin'] = '*'
             return response
 
     @staticmethod
@@ -41,8 +52,10 @@ class TodoResource(Resource):
         if todo is None:
             response = jsonify({'error':"todo doesn't exist"})
             response.status_code = 400
+            response.headers['Access-Control-Allow-Origin'] = '*'
             return response
         else:
             response = jsonify({'todo':todo.json})
             response.status_code = 200
+            response.headers['Access-Control-Allow-Origin'] = '*'
             return response
