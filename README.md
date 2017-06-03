@@ -1,7 +1,7 @@
 ToDoSnake [![Build Status](https://travis-ci.org/kymy86/todosnake.svg?branch=master)](https://travis-ci.org/kymy86/todosnake)
 ====
 
-Simple ToDo list application with Python Flask back-end and XXXX front-end.
+Simple ToDo list application with Python Flask back-end and React-Redux front-end (TBD).
 
 1. Rename env_example in .env
 2. run docker-compose up
