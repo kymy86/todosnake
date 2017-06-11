@@ -14,8 +14,8 @@ class TodoRepo:
         return Todo.query.all()
 
     @staticmethod
-    def update(self, todo_name, is_complete):
-        todo = self.get(todo_name)
+    def update(todo_name, is_complete):
+        todo = TodoRepo.get(todo_name)
         if todo is None:
             return None
         todo.is_complete = bool(is_complete)
